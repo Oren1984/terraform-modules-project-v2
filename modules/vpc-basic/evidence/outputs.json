@@ -1,0 +1,32 @@
+{
+  "igw_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "igw-03a8fabcbe34ce808"
+  },
+  "public_subnet_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "subnet-062260a23eefde0e9"
+  },
+  "route_table_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rtb-005dd1402cccb482e"
+  },
+  "s3_bucket_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:s3:::oren-modules-demo-flying-ghost"
+  },
+  "s3_bucket_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "oren-modules-demo-flying-ghost"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-0f6aff31a249a63fc"
+  }
+}
