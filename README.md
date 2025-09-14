@@ -8,7 +8,7 @@ Minimal, junior-friendly Terraform stack built from small composable modules:
 - **alb-basic** — ALB + target group + listener (HTTP/80) + latency alarm (> 0.7s).
 - **ecs-basic** — ECS Fargate (nginx) with public IP + CloudWatch alarm (CPU > 70%).
 
-All modules avoid hard-coding and expose clear inputs/outputs. Evidence files (small JSON/TXT) live under each module (e.g., `modules/<module>/evidence-*`).
+All modules avoid hard-coding and expose clear inputs/outputs. 
 
 ---
 
@@ -52,6 +52,7 @@ Then:
 
 terraform destroy -auto-approve
 
+
 Repo layout
 .
 ├─ main.tf            # Composes modules into the final stack
@@ -67,7 +68,7 @@ Repo layout
    ├─ rds-mysql-basic/
    ├─ alb-basic/
    └─ ecs-basic/
-     (each with: main.tf, variables.tf, outputs.tf, README.md, evidence-*)
+     (each with: main.tf, variables.tf, outputs.tf, README.md)
 
 
-State/plan files are ignored via .gitignore. Evidence is lightweight and safe to commit.
+State/plan files are ignored via .gitignore
