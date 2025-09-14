@@ -19,6 +19,3 @@ Minimal RDS MySQL module: creates a DB subnet group, a small MySQL instance, and
 - `db_id` – Identifier
 - `alarm_cpu_high_arn` – ARN of the CPU>70% alarm
 
-**Evidence (after deploy)**
-- Run `terraform output -json > modules/rds-mysql-basic/evidence.json`
-- Optionally add `aws rds describe-db-instances --db-instance-identifier <ID> > modules/rds-mysql-basic/evidence-rds.json`
