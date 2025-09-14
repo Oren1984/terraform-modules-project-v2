@@ -62,6 +62,37 @@ module "rds" {
   publicly_accessible    = true # minimal demo; switch to false when moving to private
 }
 
+# This block wires the minimal ALB and attaches the EC2 instance to its target group.
+module "alb" {
+  source      = "./modules/alb-basic"
+  name_prefix = "demo"
+  vpc_id      = module.vpc.vpc_id
+  subnet_ids  = module.vpc.public_subnet_ids
+  target_port = 80
+}
+
+# Conect-EC2 to -TG (instance target)
+resource "aws_lb_target_group_attachment" "web" {
+  target_group_arn = module.alb.target_group_arn
+  target_id        = module.ec2.instance_id
+  port             = 80
+}
+
+# This block wires a minimal ECS Fargate service (nginx) into the existing VPC subnets.
+module "ecs" {
+  source           = "./modules/ecs-basic"
+  name_prefix      = "demo"
+  vpc_id           = module.vpc.vpc_id
+  subnet_ids       = module.vpc.public_subnet_ids
+  assign_public_ip = true
+  container_image  = "nginx:latest"
+  desired_count    = 1
+  cpu              = 256
+  memory           = 512
+  cpu_threshold    = 70
+  tags             = var.project_tags
+}
+
 # Outputs
 output "vpc_id" { value = module.vpc.vpc_id }
 output "public_subnet_id" { value = module.vpc.public_subnet_id }
@@ -72,3 +103,8 @@ output "ec2_cpu_alarm" { value = module.ec2.cpu_alarm_name }
 output "s3_bucket_name" { value = module.s3.bucket_name }
 output "rds_endpoint" { value = module.rds.db_endpoint }
 output "rds_alarm_arn" { value = module.rds.alarm_cpu_high_arn }
+output "alb_dns_name" { value = module.alb.alb_dns_name }
+output "alb_alarm_arn" { value = module.alb.alarm_latency_arn }
+output "ecs_cluster_name" { value = module.ecs.cluster_name }
+output "ecs_service_name" { value = module.ecs.service_name }
+output "ecs_alarm_name" { value = module.ecs.alarm_name }

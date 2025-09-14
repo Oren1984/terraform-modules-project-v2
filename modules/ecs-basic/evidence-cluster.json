@@ -1,0 +1,19 @@
+{
+    "clusters": [
+        {
+            "clusterArn": "arn:aws:ecs:eu-north-1:971422685531:cluster/demo-cluster",
+            "clusterName": "demo-cluster",
+            "status": "ACTIVE",
+            "registeredContainerInstancesCount": 0,
+            "runningTasksCount": 0,
+            "pendingTasksCount": 1,
+            "activeServicesCount": 1,
+            "statistics": [],
+            "tags": [],
+            "settings": [],
+            "capacityProviders": [],
+            "defaultCapacityProviderStrategy": []
+        }
+    ],
+    "failures": []
+}

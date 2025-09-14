@@ -24,21 +24,6 @@
     "type": "string",
     "value": "51.20.249.136"
   },
-  "ecs_alarm_name": {
-    "sensitive": false,
-    "type": "string",
-    "value": "demo-ecs-cpu-gt-70"
-  },
-  "ecs_cluster_name": {
-    "sensitive": false,
-    "type": "string",
-    "value": "demo-cluster"
-  },
-  "ecs_service_name": {
-    "sensitive": false,
-    "type": "string",
-    "value": "demo-service"
-  },
   "public_subnet_id": {
     "sensitive": false,
     "type": "string",

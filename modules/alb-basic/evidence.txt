@@ -3,9 +3,6 @@ alb_dns_name = "demo-alb-847022701.eu-north-1.elb.amazonaws.com"
 ec2_cpu_alarm = "ec2-i-0d5d265ceaebafabd-cpu-high"
 ec2_instance_id = "i-0d5d265ceaebafabd"
 ec2_public_ip = "51.20.249.136"
-ecs_alarm_name = "demo-ecs-cpu-gt-70"
-ecs_cluster_name = "demo-cluster"
-ecs_service_name = "demo-service"
 public_subnet_id = "subnet-0f102b8820aae7f50"
 public_subnet_ids = [
   "subnet-0f102b8820aae7f50",

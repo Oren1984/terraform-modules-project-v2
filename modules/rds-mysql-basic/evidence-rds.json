@@ -1,10 +1,99 @@
-[
-    {
-        "id": "demo-mysql",
-        "status": "available",
-        "endpoint": "demo-mysql.cboki6scqnx8.eu-north-1.rds.amazonaws.com",
-        "engine": "mysql",
-        "clazz": "db.t3.micro",
-        "az": "eu-north-1b"
-    }
-]
+{
+    "DBInstances": [
+        {
+            "DBInstanceIdentifier": "demo-mysql",
+            "DBInstanceClass": "db.t3.micro",
+            "Engine": "mysql",
+            "DBInstanceStatus": "available",
+            "MasterUsername": "appuser",
+            "Endpoint": {
+                "Address": "demo-mysql.cboki6scqnx8.eu-north-1.rds.amazonaws.com",
+                "Port": 3306,
+                "HostedZoneId": "Z3MPDEQW7KHUGY"
+            },
+            "AllocatedStorage": 20,
+            "InstanceCreateTime": "2025-09-14T09:57:53.082000+00:00",
+            "PreferredBackupWindow": "23:33-00:03",
+            "BackupRetentionPeriod": 0,
+            "DBSecurityGroups": [],
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0026e818cbbab350d",
+                    "Status": "active"
+                }
+            ],
+            "DBParameterGroups": [
+                {
+                    "DBParameterGroupName": "default.mysql8.0",
+                    "ParameterApplyStatus": "in-sync"
+                }
+            ],
+            "AvailabilityZone": "eu-north-1b",
+            "DBSubnetGroup": {
+                "DBSubnetGroupName": "demo-db-subnets",
+                "DBSubnetGroupDescription": "Managed by Terraform",
+                "VpcId": "vpc-08b81a5ac633a940f",
+                "SubnetGroupStatus": "Complete",
+                "Subnets": [
+                    {
+                        "SubnetIdentifier": "subnet-0f102b8820aae7f50",
+                        "SubnetAvailabilityZone": {
+                            "Name": "eu-north-1a"
+                        },
+                        "SubnetOutpost": {},
+                        "SubnetStatus": "Active"
+                    },
+                    {
+                        "SubnetIdentifier": "subnet-0afc3c9acbef2ef89",
+                        "SubnetAvailabilityZone": {
+                            "Name": "eu-north-1b"
+                        },
+                        "SubnetOutpost": {},
+                        "SubnetStatus": "Active"
+                    }
+                ]
+            },
+            "PreferredMaintenanceWindow": "fri:02:12-fri:02:42",
+            "PendingModifiedValues": {},
+            "MultiAZ": false,
+            "EngineVersion": "8.0.42",
+            "AutoMinorVersionUpgrade": true,
+            "ReadReplicaDBInstanceIdentifiers": [],
+            "LicenseModel": "general-public-license",
+            "OptionGroupMemberships": [
+                {
+                    "OptionGroupName": "default:mysql-8-0",
+                    "Status": "in-sync"
+                }
+            ],
+            "PubliclyAccessible": true,
+            "StorageType": "gp2",
+            "DbInstancePort": 0,
+            "StorageEncrypted": false,
+            "DbiResourceId": "db-GVOVWDKNWEKSQPOIXGUOCNPIN4",
+            "CACertificateIdentifier": "rds-ca-rsa2048-g1",
+            "DomainMemberships": [],
+            "CopyTagsToSnapshot": false,
+            "MonitoringInterval": 0,
+            "DBInstanceArn": "arn:aws:rds:eu-north-1:971422685531:db:demo-mysql",
+            "IAMDatabaseAuthenticationEnabled": false,
+            "DatabaseInsightsMode": "standard",
+            "PerformanceInsightsEnabled": false,
+            "DeletionProtection": false,
+            "AssociatedRoles": [],
+            "TagList": [],
+            "CustomerOwnedIpEnabled": false,
+            "ActivityStreamStatus": "stopped",
+            "BackupTarget": "region",
+            "NetworkType": "IPV4",
+            "StorageThroughput": 0,
+            "CertificateDetails": {
+                "CAIdentifier": "rds-ca-rsa2048-g1",
+                "ValidTill": "2026-09-14T09:56:28+00:00"
+            },
+            "DedicatedLogVolume": false,
+            "IsStorageConfigUpgradeAvailable": false,
+            "EngineLifecycleSupport": "open-source-rds-extended-support"
+        }
+    ]
+}

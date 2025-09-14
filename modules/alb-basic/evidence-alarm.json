@@ -1,0 +1,34 @@
+{
+    "MetricAlarms": [
+        {
+            "AlarmName": "demo-alb-latency-gt-0.7s",
+            "AlarmArn": "arn:aws:cloudwatch:eu-north-1:971422685531:alarm:demo-alb-latency-gt-0.7s",
+            "AlarmDescription": "ALB TargetResponseTime > 0.7s for 2 minutes",
+            "AlarmConfigurationUpdatedTimestamp": "2025-09-14T10:22:33.682000+00:00",
+            "ActionsEnabled": true,
+            "OKActions": [],
+            "AlarmActions": [],
+            "InsufficientDataActions": [],
+            "StateValue": "OK",
+            "StateReason": "Threshold Crossed: no datapoints were received for 2 periods and 2 missing datapoints were treated as [NonBreaching].",
+            "StateReasonData": "{\"version\":\"1.0\",\"queryDate\":\"2025-09-14T10:23:43.790+0000\",\"statistic\":\"Average\",\"period\":60,\"recentDatapoints\":[],\"threshold\":0.7,\"evaluatedDatapoints\":[{\"timestamp\":\"2025-09-14T10:20:00.000+0000\"}]}",
+            "StateUpdatedTimestamp": "2025-09-14T10:23:43.791000+00:00",
+            "MetricName": "TargetResponseTime",
+            "Namespace": "AWS/ApplicationELB",
+            "Statistic": "Average",
+            "Dimensions": [
+                {
+                    "Name": "LoadBalancer",
+                    "Value": "app/demo-alb/cf46cf6a0d1ee314"
+                }
+            ],
+            "Period": 60,
+            "EvaluationPeriods": 2,
+            "Threshold": 0.7,
+            "ComparisonOperator": "GreaterThanThreshold",
+            "TreatMissingData": "notBreaching",
+            "StateTransitionedTimestamp": "2025-09-14T10:23:43.791000+00:00"
+        }
+    ],
+    "CompositeAlarms": []
+}

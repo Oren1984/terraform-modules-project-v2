@@ -1,0 +1,10 @@
+[
+    {
+        "name": "demo-ecs-cpu-gt-70",
+        "state": "OK",
+        "metric": "CPUUtilization",
+        "threshold": 70.0,
+        "period": 60,
+        "eval": 2
+    }
+]

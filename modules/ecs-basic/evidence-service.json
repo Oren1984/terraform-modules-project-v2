@@ -1,0 +1,98 @@
+{
+    "services": [
+        {
+            "serviceArn": "arn:aws:ecs:eu-north-1:971422685531:service/demo-cluster/demo-service",
+            "serviceName": "demo-service",
+            "clusterArn": "arn:aws:ecs:eu-north-1:971422685531:cluster/demo-cluster",
+            "loadBalancers": [],
+            "serviceRegistries": [],
+            "status": "ACTIVE",
+            "desiredCount": 1,
+            "runningCount": 0,
+            "pendingCount": 1,
+            "launchType": "FARGATE",
+            "platformVersion": "LATEST",
+            "platformFamily": "Linux",
+            "taskDefinition": "arn:aws:ecs:eu-north-1:971422685531:task-definition/demo-task:1",
+            "deploymentConfiguration": {
+                "deploymentCircuitBreaker": {
+                    "enable": false,
+                    "rollback": false
+                },
+                "maximumPercent": 200,
+                "minimumHealthyPercent": 100,
+                "strategy": "ROLLING",
+                "bakeTimeInMinutes": 0
+            },
+            "deployments": [
+                {
+                    "id": "ecs-svc/3784129993083299940",
+                    "status": "PRIMARY",
+                    "taskDefinition": "arn:aws:ecs:eu-north-1:971422685531:task-definition/demo-task:1",
+                    "desiredCount": 1,
+                    "pendingCount": 1,
+                    "runningCount": 0,
+                    "failedTasks": 1,
+                    "createdAt": "2025-09-14T13:41:53.569000+03:00",
+                    "updatedAt": "2025-09-14T13:42:15.327000+03:00",
+                    "launchType": "FARGATE",
+                    "platformVersion": "1.4.0",
+                    "platformFamily": "Linux",
+                    "networkConfiguration": {
+                        "awsvpcConfiguration": {
+                            "subnets": [
+                                "subnet-0f102b8820aae7f50",
+                                "subnet-0afc3c9acbef2ef89"
+                            ],
+                            "securityGroups": [
+                                "sg-0aaa16e3a63e221f4"
+                            ],
+                            "assignPublicIp": "ENABLED"
+                        }
+                    },
+                    "rolloutState": "IN_PROGRESS",
+                    "rolloutStateReason": "ECS deployment ecs-svc/3784129993083299940 in progress."
+                }
+            ],
+            "roleArn": "arn:aws:iam::971422685531:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+            "events": [
+                {
+                    "id": "b484e037-283a-4912-b143-69b34f38dded",
+                    "createdAt": "2025-09-14T13:47:49.121000+03:00",
+                    "message": "(service demo-service) has started 1 tasks: (task 24c570ba3f4049b8b29d260fdcb4aea4)."
+                },
+                {
+                    "id": "d86e5143-9ea0-4b1a-b6ee-8f3e5f94a634",
+                    "createdAt": "2025-09-14T13:42:15.974000+03:00",
+                    "message": "(service demo-service) has started 1 tasks: (task 4df045d8f35a4594837c23afd833e430)."
+                }
+            ],
+            "createdAt": "2025-09-14T13:41:53.569000+03:00",
+            "placementConstraints": [],
+            "placementStrategy": [],
+            "networkConfiguration": {
+                "awsvpcConfiguration": {
+                    "subnets": [
+                        "subnet-0f102b8820aae7f50",
+                        "subnet-0afc3c9acbef2ef89"
+                    ],
+                    "securityGroups": [
+                        "sg-0aaa16e3a63e221f4"
+                    ],
+                    "assignPublicIp": "ENABLED"
+                }
+            },
+            "healthCheckGracePeriodSeconds": 0,
+            "schedulingStrategy": "REPLICA",
+            "deploymentController": {
+                "type": "ECS"
+            },
+            "createdBy": "arn:aws:iam::971422685531:user/oren-1",
+            "enableECSManagedTags": false,
+            "propagateTags": "NONE",
+            "enableExecuteCommand": false,
+            "availabilityZoneRebalancing": "DISABLED"
+        }
+    ],
+    "failures": []
+}

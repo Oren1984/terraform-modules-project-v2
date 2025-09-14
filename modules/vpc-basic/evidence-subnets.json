@@ -1,12 +1,84 @@
-[
-    {
-        "id": "subnet-0f102b8820aae7f50",
-        "cidr": "10.0.1.0/24",
-        "az": "eu-north-1a"
-    },
-    {
-        "id": "subnet-0afc3c9acbef2ef89",
-        "cidr": "10.0.2.0/24",
-        "az": "eu-north-1b"
-    }
-]
+{
+    "Subnets": [
+        {
+            "AvailabilityZoneId": "eun1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "971422685531",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "oren"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "demo-public-10-0-1-0/24"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "terraform-modules"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:eu-north-1:971422685531:subnet/subnet-0f102b8820aae7f50",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-0f102b8820aae7f50",
+            "State": "available",
+            "VpcId": "vpc-08b81a5ac633a940f",
+            "CidrBlock": "10.0.1.0/24",
+            "AvailableIpAddressCount": 249,
+            "AvailabilityZone": "eu-north-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        },
+        {
+            "AvailabilityZoneId": "eun1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "971422685531",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "demo-public-10-0-2-0/24"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "terraform-modules"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "oren"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:eu-north-1:971422685531:subnet/subnet-0afc3c9acbef2ef89",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-0afc3c9acbef2ef89",
+            "State": "available",
+            "VpcId": "vpc-08b81a5ac633a940f",
+            "CidrBlock": "10.0.2.0/24",
+            "AvailableIpAddressCount": 248,
+            "AvailabilityZone": "eu-north-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        }
+    ]
+}

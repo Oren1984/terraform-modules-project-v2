@@ -1,11 +1,34 @@
-[
-    {
-        "name": "demo-rds-cpu-gt-70",
-        "state": "OK",
-        "metric": "CPUUtilization",
-        "ns": "AWS/RDS",
-        "threshold": 70.0,
-        "period": 60,
-        "eval": 2
-    }
-]
+{
+    "MetricAlarms": [
+        {
+            "AlarmName": "demo-rds-cpu-gt-70",
+            "AlarmArn": "arn:aws:cloudwatch:eu-north-1:971422685531:alarm:demo-rds-cpu-gt-70",
+            "AlarmDescription": "RDS CPUUtilization > 70% for 2 minutes",
+            "AlarmConfigurationUpdatedTimestamp": "2025-09-14T09:58:16.504000+00:00",
+            "ActionsEnabled": true,
+            "OKActions": [],
+            "AlarmActions": [],
+            "InsufficientDataActions": [],
+            "StateValue": "OK",
+            "StateReason": "Threshold Crossed: no datapoints were received for 2 periods and 2 missing datapoints were treated as [NonBreaching].",
+            "StateReasonData": "{\"version\":\"1.0\",\"queryDate\":\"2025-09-14T09:59:08.044+0000\",\"statistic\":\"Average\",\"period\":60,\"recentDatapoints\":[],\"threshold\":70.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2025-09-14T09:57:00.000+0000\"}]}",
+            "StateUpdatedTimestamp": "2025-09-14T09:59:08.046000+00:00",
+            "MetricName": "CPUUtilization",
+            "Namespace": "AWS/RDS",
+            "Statistic": "Average",
+            "Dimensions": [
+                {
+                    "Name": "DBInstanceIdentifier",
+                    "Value": "db-GVOVWDKNWEKSQPOIXGUOCNPIN4"
+                }
+            ],
+            "Period": 60,
+            "EvaluationPeriods": 2,
+            "Threshold": 70.0,
+            "ComparisonOperator": "GreaterThanThreshold",
+            "TreatMissingData": "notBreaching",
+            "StateTransitionedTimestamp": "2025-09-14T09:59:08.046000+00:00"
+        }
+    ],
+    "CompositeAlarms": []
+}
