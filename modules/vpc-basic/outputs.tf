@@ -1,6 +1,13 @@
-# outputs.tf - Core IDs
+# This file exposes VPC and public subnet outputs.
+output "vpc_id" {
+  value = aws_vpc.this.id
+}
 
-output "vpc_id" { value = aws_vpc.this.id }
-output "public_subnet_id" { value = aws_subnet.public.id }
-output "igw_id" { value = aws_internet_gateway.igw.id }
-output "route_table_id" { value = aws_route_table.public.id }
+output "public_subnet_ids" {
+  value = [for s in aws_subnet.public : s.id]
+}
+
+# kept for backward-compat: first subnet id
+output "public_subnet_id" {
+  value = length([for s in aws_subnet.public : s.id]) > 0 ? [for s in aws_subnet.public : s.id][0] : null
+}

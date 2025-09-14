@@ -1,0 +1,11 @@
+[
+    {
+        "name": "ec2-i-0d5d265ceaebafabd-cpu-high",
+        "state": "OK",
+        "metric": "CPUUtilization",
+        "ns": "AWS/EC2",
+        "threshold": 70.0,
+        "period": 60,
+        "eval": 2
+    }
+]

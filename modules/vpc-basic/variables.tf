@@ -1,17 +1,14 @@
-# variables.tf - Minimal inputs for VPC (CIDRs + tags)
-
+# This file declares minimal VPC inputs including two public subnets.
 variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
-  type        = string
+  type = string
 }
 
-variable "public_subnet_cidr" {
-  description = "CIDR block for the public subnet"
-  type        = string
+variable "public_subnet_cidrs" {
+  type    = list(string)
+  default = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "tags" {
-  description = "Common tags"
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }

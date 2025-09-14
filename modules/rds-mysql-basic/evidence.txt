@@ -1,0 +1,12 @@
+ec2_cpu_alarm = "ec2-i-0d5d265ceaebafabd-cpu-high"
+ec2_instance_id = "i-0d5d265ceaebafabd"
+ec2_public_ip = "51.20.249.136"
+public_subnet_id = "subnet-0f102b8820aae7f50"
+public_subnet_ids = [
+  "subnet-0f102b8820aae7f50",
+  "subnet-0afc3c9acbef2ef89",
+]
+rds_alarm_arn = "arn:aws:cloudwatch:eu-north-1:971422685531:alarm:demo-rds-cpu-gt-70"
+rds_endpoint = "demo-mysql.cboki6scqnx8.eu-north-1.rds.amazonaws.com"
+s3_bucket_name = "oren-modules-demo-free-glowworm"
+vpc_id = "vpc-08b81a5ac633a940f"

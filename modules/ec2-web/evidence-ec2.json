@@ -1,0 +1,12 @@
+[
+    {
+        "id": "i-0d5d265ceaebafabd",
+        "type": "t3.micro",
+        "state": "running",
+        "az": "eu-north-1a",
+        "publicIp": "51.20.249.136",
+        "sgs": [
+            "sg-0985137c4f3bf8fd0"
+        ]
+    }
+]

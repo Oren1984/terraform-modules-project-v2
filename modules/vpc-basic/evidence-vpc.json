@@ -1,0 +1,7 @@
+[
+    {
+        "id": "vpc-08b81a5ac633a940f",
+        "cidr": "10.0.0.0/16",
+        "state": "available"
+    }
+]

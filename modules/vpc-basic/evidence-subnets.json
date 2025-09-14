@@ -1,0 +1,12 @@
+[
+    {
+        "id": "subnet-0f102b8820aae7f50",
+        "cidr": "10.0.1.0/24",
+        "az": "eu-north-1a"
+    },
+    {
+        "id": "subnet-0afc3c9acbef2ef89",
+        "cidr": "10.0.2.0/24",
+        "az": "eu-north-1b"
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "name": "demo-rds-cpu-gt-70",
+        "state": "OK",
+        "metric": "CPUUtilization",
+        "ns": "AWS/RDS",
+        "threshold": 70.0,
+        "period": 60,
+        "eval": 2
+    }
+]

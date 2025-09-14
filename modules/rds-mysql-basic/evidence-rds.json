@@ -1,0 +1,10 @@
+[
+    {
+        "id": "demo-mysql",
+        "status": "available",
+        "endpoint": "demo-mysql.cboki6scqnx8.eu-north-1.rds.amazonaws.com",
+        "engine": "mysql",
+        "clazz": "db.t3.micro",
+        "az": "eu-north-1b"
+    }
+]
