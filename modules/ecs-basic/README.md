@@ -17,7 +17,4 @@ Minimal ECS Fargate service running **nginx**:
 **Outputs**
 - `cluster_name`, `service_name`, `task_def_arn`, `service_sg_id`, `alarm_name`
 
-**Evidence**
-- `terraform output` / `-json`
-- `aws ecs describe-clusters/services`
-- Task public IP via ENI lookup (see commands in the main guide)
+
