@@ -1,71 +1,73 @@
-# terraform-modules-project
+# terraform-modules-project (V2)
 
-# Terraform Modules Project — S3 + VPC + EC2 (Minimal)
+Minimal, junior-friendly Terraform stack built from small composable modules:
+- **vpc-basic** — VPC with 2 public subnets (across AZs), IGW, route table.
+- **ec2-web** — EC2 (AL2023 via SSM), optional SG, CloudWatch alarm (CPU > 70%).
+- **s3-basic** — S3 with Versioning + Lifecycle to Glacier.
+- **rds-mysql-basic** — RDS MySQL (minimal) + CloudWatch alarm (CPU > 70%).
+- **alb-basic** — ALB + target group + listener (HTTP/80) + latency alarm (> 0.7s).
+- **ecs-basic** — ECS Fargate (nginx) with public IP + CloudWatch alarm (CPU > 70%).
 
-A small, junior-friendly Terraform project with **three minimal modules** combined into one stack:
-- **s3-basic** — S3 bucket with Versioning + Lifecycle to Glacier IR (days configurable).
-- **vpc-basic** — Minimal VPC with one public subnet, IGW, route table + default route.
-- **ec2-web** — Small EC2 (AL2023 via SSM), Nginx “Hello” page, optional CPU>70% CloudWatch alarm.
-
-No hard-coding: AMI via SSM Parameter, CIDRs and tags as inputs, randomized S3 suffix, outputs for composition.
+All modules avoid hard-coding and expose clear inputs/outputs. Evidence files (small JSON/TXT) live under each module (e.g., `modules/<module>/evidence-*`).
 
 ---
 
-## Quick Start
+## Quick start
 
-Prereqs:
-- Terraform (>= 1.5 recommended)
-- AWS account & credentials configured (e.g., `aws configure`)
-- Region set in `providers.tf` or via env var `AWS_REGION`
+**Prereqs**
+- Terraform ≥ 1.5
+- AWS credentials configured (`aws configure`) and region set (`AWS_REGION` or `providers.tf`)
 
-Run from repo root:
+**Run**
 ```bash
 terraform fmt -recursive
-terraform init
+terraform init -upgrade
 terraform validate
 terraform plan -out=tfplan.bin
 terraform apply tfplan.bin
 
 
-Outputs you’ll see:
+Key outputs (examples)
 
-vpc_id, public_subnet_id
+VPC: vpc_id, public_subnet_ids
 
-ec2_instance_id, ec2_public_ip, ec2_sg_id, ec2_cpu_alarm
+EC2: ec2_instance_id, ec2_public_ip, ec2_cpu_alarm
 
-s3_bucket_name
+S3: s3_bucket_name
 
-Clean up:
+RDS: rds_endpoint, rds_alarm_arn
+
+ALB: alb_dns_name, alb_alarm_arn
+
+ECS: ecs_cluster_name, ecs_service_name, ecs_alarm_name
+
+Cleanup
+
+If the S3 bucket isn’t force_destroy:
+
+aws s3 rm "s3://<bucket>" --recursive || true
+
+
+Then:
 
 terraform destroy -auto-approve
 
-
-How it’s structured
+Repo layout
 .
-├─ main.tf              # final stack: VPC + EC2 + S3
-├─ providers.tf         # AWS provider + region
-├─ versions.tf          # terraform & provider version constraints
-├─ variables.tf         # shared inputs (e.g., tags)
-├─ outputs.tf           # (few root outputs; most are module outputs)
+├─ main.tf            # Composes modules into the final stack
+├─ providers.tf       # AWS provider + region
+├─ versions.tf        # Terraform & provider version constraints
+├─ variables.tf       # Shared inputs (e.g., tags)
+├─ outputs.tf         # Root-level outputs
+├─ evidence-root.*    # Optional root evidence
 └─ modules/
-   ├─ s3-basic/         # S3 module (minimal)
-   │  ├─ main.tf variables.tf outputs.tf README.md
-   │  └─ evidence/      # small proof files (e.g., outputs.json)
-   ├─ vpc-basic/        # VPC module (minimal public-only)
-   │  ├─ main.tf variables.tf outputs.tf README.md
-   │  └─ evidence/
-   └─ ec2-web/          # EC2 + Nginx + optional CPU alarm
-      ├─ main.tf variables.tf outputs.tf README.md
-      └─ evidence/
+   ├─ vpc-basic/
+   ├─ ec2-web/
+   ├─ s3-basic/
+   ├─ rds-mysql-basic/
+   ├─ alb-basic/
+   └─ ecs-basic/
+     (each with: main.tf, variables.tf, outputs.tf, README.md, evidence-*)
 
 
-Each module keeps inputs small and outputs useful so modules compose easily in main.tf.
-
-
-Notes
-
-No hard-coding: AMI via SSM, CIDRs/tags via variables.
-
-evidence/ per module is safe to commit (small text/JSON).
-
-State/plan files are ignored by git (see .gitignore).
+State/plan files are ignored via .gitignore. Evidence is lightweight and safe to commit.

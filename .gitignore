@@ -1,11 +1,23 @@
+# Terraform local artifacts (do NOT commit)
 .terraform/
 *.tfstate
 *.tfstate.*
-terraform.tfvars
+crash.log
+
+# Local vars (secrets) - never commit
+*.tfvars
 *.auto.tfvars
-tfplan.bin
-.crash
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+*.tfvars.json
+
+# Plans
+*.plan
+*.bin
+
+# OS/Editor
+.DS_Store
+*.swp
+*.swo
+
+# Keep the lock file pinned in git
+!.terraform.lock.hcl
+EOF
