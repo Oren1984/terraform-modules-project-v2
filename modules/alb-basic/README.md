@@ -18,8 +18,3 @@ Minimal Application Load Balancer module:
 - `alb_sg_id`
 - `alarm_latency_arn`
 
-**Evidence (after deploy)**
-- `terraform output` / `-json`
-- `aws elbv2 describe-load-balancers`
-- `aws elbv2 describe-target-groups`
-- `aws cloudwatch describe-alarms`
