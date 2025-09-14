@@ -29,14 +29,3 @@ No hard-coding: AMI via SSM Parameter (Amazon Linux 2023), subnet and tags are i
 - `security_group_id` (if created)
 - `cpu_alarm_name` (if created)
 
-## Example (root usage)
-```hcl
-module "ec2" {
-  source        = "./modules/ec2-web"
-  subnet_id     = module.vpc.public_subnet_id
-  instance_type = "t3.micro"
-  create_sg     = true
-  enable_cpu_alarm = true
-  cpu_threshold = 70
-  tags          = var.project_tags
-}
