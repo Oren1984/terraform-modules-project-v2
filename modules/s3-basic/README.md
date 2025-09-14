@@ -14,15 +14,3 @@ This module creates a simple S3 bucket with:
 - `bucket_name` – name of the created bucket
 - `bucket_arn` – ARN of the created bucket
 
-## Example
-```hcl
-module "s3" {
-  source                     = "./modules/s3-basic"
-  bucket_name_prefix         = "oren-modules-demo"
-  enable_versioning          = true
-  lifecycle_days_to_glacier  = 30
-  tags = {
-    Project = "terraform-modules"
-    Owner   = "oren"
-  }
-}
