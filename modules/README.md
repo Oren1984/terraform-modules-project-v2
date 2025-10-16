@@ -3,6 +3,8 @@
 Minimal, composable Terraform modules for AWS stack.  
 Each module exposes focused inputs/outputs and keeps config simple.
 
+-
+
 ## Modules
 - **vpc-basic** – VPC with 2 public subnets across AZs, IGW, route table.
   - Outputs: `vpc_id`, `public_subnet_id`, `public_subnet_ids`
@@ -28,10 +30,14 @@ Each module exposes focused inputs/outputs and keeps config simple.
   - Outputs: `cluster_name`, `service_name`, `task_def_arn`, `service_sg_id`, `alarm_name`
   -
 
+-
+
 ## Composition
 - `vpc-basic` feeds `vpc_id` and `public_subnet_ids` to EC2/ALB/RDS/ECS.
 - `s3-basic` is independent.
 - ECS is deployed with a public IP (no ALB in this demo), but can be attached later (target type `ip`).
+
+-
 
 ## Usage (root)
 ```bash
@@ -40,3 +46,29 @@ terraform init -upgrade
 terraform validate
 terraform plan -out=tfplan.bin
 terraform apply tfplan.bin
+
+---
+
+## 🧪 Infrastructure Validation
+
+All Terraform modules (**S3**, **VPC**, **EC2**, **ECS**, **RDS**, **ALB**) were validated locally using:
+
+```bash
+terraform fmt -recursive
+terraform init
+terraform validate
+terraform plan -out=tfplan.bin
+terraform destroy -auto-approve
+Validation results:
+
+All modules successfully initialized and validated.
+
+terraform plan produced correct resource previews without errors.
+
+No apply was executed (logical validation only) to avoid AWS resource charges.
+
+Each module includes its own outputs.tf file showing verified configurations.
+
+✅ Terraform configurations verified successfully across all modules.
+
+---
