@@ -49,26 +49,4 @@ terraform apply tfplan.bin
 
 ---
 
-## 🧪 Infrastructure Validation
 
-All Terraform modules (**S3**, **VPC**, **EC2**, **ECS**, **RDS**, **ALB**) were validated locally using:
-
-```bash
-terraform fmt -recursive
-terraform init
-terraform validate
-terraform plan -out=tfplan.bin
-terraform destroy -auto-approve
-Validation results:
-
-All modules successfully initialized and validated.
-
-terraform plan produced correct resource previews without errors.
-
-No apply was executed (logical validation only) to avoid AWS resource charges.
-
-Each module includes its own outputs.tf file showing verified configurations.
-
-✅ Terraform configurations verified successfully across all modules.
-
----
